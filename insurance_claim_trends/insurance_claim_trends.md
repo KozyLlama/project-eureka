@@ -45,7 +45,8 @@ over the age of 50. This presents an engaging point to follow during the
 investigative analysis on if an answer could be determined for the lack
 of male claims over the age of 50.
 
-![](insurance_claim_trends_files/figure-gfm/age,%20gender%20and%20claims-1.png)<!-- -->
+![age, gender and claims-1](https://user-images.githubusercontent.com/119358123/214977581-51714e11-8d3c-4732-ab87-1b3575fc7b63.png)
+<!-- -->
 
 ## Health Factor: Body Mass Index
 
@@ -56,7 +57,8 @@ under.This severity shows a minor impact on insurance claims, making the
 relationship between an underweight BMI and claims close to be
 negligible.
 
-![](insurance_claim_trends_files/figure-gfm/bmi%20under%20weight-1.png)<!-- -->
+![bmi under weight-1](https://user-images.githubusercontent.com/119358123/214977748-226f497b-88da-4e4e-950b-d6f0cf086a89.png)
+<!-- -->
 
 **Normal Body Mass Index**
 
@@ -66,7 +68,8 @@ claims, approximately 20 times more than an individual with an
 underweight BMI yet this range accounts for a small portion of total
 claims.
 
-![](insurance_claim_trends_files/figure-gfm/bmi%20normal%20weight-1.png)<!-- -->
+![bmi normal weight-1](https://user-images.githubusercontent.com/119358123/214977821-26203a50-174b-4e76-95cb-88d4cb31eea2.png)
+<!-- -->
 
 **Overweight Body Mass Index**
 
@@ -76,7 +79,8 @@ comparison to the normal BMI group. Only difference being a couple of
 larger “outlines” which thereby increases the average insurance claims
 of this subgroup when compared to the aforementioned group.
 
-![](insurance_claim_trends_files/figure-gfm/bmi%20over%20weight-1.png)<!-- -->
+![bmi over weight-1](https://user-images.githubusercontent.com/119358123/214977849-df051c84-1d3e-46ff-b683-6de856481536.png)
+<!-- -->
 
 **Obese Body Mass Index**
 
@@ -87,7 +91,8 @@ individuals considered obese accounted for three times as much insurance
 claims. This severity shows a higher risk factor and most vulnerable in
 filling a claim.
 
-![](insurance_claim_trends_files/figure-gfm/bmi%20obese-1.png)<!-- -->
+![bmi obese-1](https://user-images.githubusercontent.com/119358123/214977869-b10b62fe-3ec1-4e56-8d04-a5635badf535.png)
+<!-- -->
 
 ### Revisting 1
 
@@ -96,7 +101,8 @@ insurance claims in comparison to females over the age of 50. The
 analysis provides insights into females that were either obese or
 overweight were more vulnerable and likely to file an insurance claim.
 
-![](insurance_claim_trends_files/figure-gfm/bmi%20gender%20relationship-1.png)<!-- -->
+![bmi gender relationship-1](https://user-images.githubusercontent.com/119358123/214977922-ac5a9b38-02d2-49a5-9559-2cb9f95aa004.png)
+<!-- -->
 
 ## Health Factor: Blood Pressure
 
@@ -110,7 +116,8 @@ Individuals at risk for high blood pressure had a higher minimum
 monetary claim value around \$26,000, although fewer overall claims in
 total but a very costly starting point in comparison to the rest.
 
-![](insurance_claim_trends_files/figure-gfm/high%20bloodpressure-1.png)<!-- -->
+![high bloodpressure-1](https://user-images.githubusercontent.com/119358123/214977964-96ab3b36-2d44-47e8-a2a6-b7941d4f5645.png)
+<!-- -->
 
 Similarly to the risks of high blood pressure, individuals that are at
 risk of pre-hypertension (high blood pressure) also share the comparable
@@ -122,7 +129,8 @@ plot is the relationship between an individual being a smoker and the
 claim amount. There appears to be a strong positive correlation between
 smokers and high claims monetary amount.
 
-![](insurance_claim_trends_files/figure-gfm/prehypertension%20bloodpressure-1.png)<!-- -->
+![prehypertension bloodpressure-1](https://user-images.githubusercontent.com/119358123/214977991-6d56b383-939f-4430-ab36-e10eb5ec2773.png)
+<!-- -->
 
 ### Revisting 2
 
@@ -130,7 +138,8 @@ In an effort to evaluate the relationship between gender and insurance
 claims, males were slightly more likely to be responsible for the higher
 monetary value.
 
-![](insurance_claim_trends_files/figure-gfm/gender%20and%20bloodpressure-1.png)<!-- -->
+![gender and bloodpressure-1](https://user-images.githubusercontent.com/119358123/214978051-3798968b-56bc-41f1-b4db-0fa0eaf6a675.png)
+<!-- -->
 
 ## Health Factor: Diabetic
 
@@ -142,7 +151,8 @@ There happens to be no strong correlation between diabetics and claim
 amounts. Both diabetics and non-diabetics show comparable results in
 this analysis.
 
-![](insurance_claim_trends_files/figure-gfm/diabetic-1.png)<!-- -->
+![diabetic-1](https://user-images.githubusercontent.com/119358123/214978082-a424289d-090f-4f7a-a752-fc83d3fac900.png)
+<!-- -->
 
 ### Revisting 3
 
