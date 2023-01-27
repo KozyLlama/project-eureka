@@ -45,6 +45,17 @@ over the age of 50. This presents an engaging point to follow during the
 investigative analysis on if an answer could be determined for the lack
 of male claims over the age of 50.
 
+``` r age and gender
+insurance_data %>% 
+  drop_na(age) %>% 
+  ggplot() +
+  geom_point(mapping = aes(x = age, y = claim, color = gender)) + xlim(0,60) +
+  labs(title = "Impact of Age & Gender on Insurance Claims",
+       subtitle = "", caption = "Data Source: kaggle.com/datasets/thedevastator", color = "Gender") + 
+  scale_y_continuous(labels=scales::dollar_format())+ xlab("Age") + 
+  ylab("Claims") + theme_minimal()
+```
+
 ![age, gender and claims-1](https://user-images.githubusercontent.com/119358123/214977581-51714e11-8d3c-4732-ab87-1b3575fc7b63.png)
 <!-- -->
 
@@ -57,6 +68,17 @@ under.This severity shows a minor impact on insurance claims, making the
 relationship between an underweight BMI and claims close to be
 negligible.
 
+``` r underweight bmi
+insurance_data %>% 
+  ggplot() +
+  geom_point(mapping = aes(x = bmi, y = claim, color = bmi < 18.5)) +
+  xlim(0,60) +
+  labs(title = "Health Factor Risk and Severity on Insurance Claims",
+       subtitle = "Underweight: Body Mass Index of 18.5 or less", caption = "Data Source: kaggle.com/datasets/thedevastator", color = "Underweight") + 
+  scale_y_continuous(labels=scales::dollar_format())+ xlab("Body Mass Index") + 
+  ylab("Claims") + theme_minimal()
+```
+
 ![bmi under weight-1](https://user-images.githubusercontent.com/119358123/214977748-226f497b-88da-4e4e-950b-d6f0cf086a89.png)
 <!-- -->
 
@@ -68,6 +90,17 @@ claims, approximately 20 times more than an individual with an
 underweight BMI yet this range accounts for a small portion of total
 claims.
 
+``` r normal bmi
+insurance_data %>% 
+  ggplot() +
+  geom_point(mapping = aes(x = bmi, y = claim, color = bmi >= 18.5 & bmi <=24.9)) +
+  xlim(0,60) +
+  labs(title = "Health Factor Risk and Severity on Insurance Claims",
+       subtitle = "Normal: Body Mass Index Between 18.5 & 24.9", caption = "Data Source: kaggle.com/datasets/thedevastator", color = "Normal") + 
+  scale_y_continuous(labels=scales::dollar_format())+ xlab("Body Mass Index") + 
+  ylab("Claims") + theme_minimal()
+```
+
 ![bmi normal weight-1](https://user-images.githubusercontent.com/119358123/214977821-26203a50-174b-4e76-95cb-88d4cb31eea2.png)
 <!-- -->
 
@@ -78,6 +111,17 @@ An overweight Body Mass Index (BMI) is scored at a value between 25 and
 comparison to the normal BMI group. Only difference being a couple of
 larger “outlines” which thereby increases the average insurance claims
 of this subgroup when compared to the aforementioned group.
+
+``` r overweight bmi
+insurance_data %>% 
+  ggplot() +
+  geom_point(mapping = aes(x = bmi, y = claim, color = bmi >= 25 & bmi <= 29.9)) +
+  xlim(0,60) +
+  labs(title = "Health Factor Risk and Severity on Insurance Claims",
+       subtitle = "Overweight: Body Mass Index Between 25 & 29.9", caption = "Data Source: kaggle.com/datasets/thedevastator", color = "Overweight") + 
+  scale_y_continuous(labels=scales::dollar_format())+ xlab("Body Mass Index") + 
+  ylab("Claims") + theme_minimal()
+```
 
 ![bmi over weight-1](https://user-images.githubusercontent.com/119358123/214977849-df051c84-1d3e-46ff-b683-6de856481536.png)
 <!-- -->
@@ -91,6 +135,17 @@ individuals considered obese accounted for three times as much insurance
 claims. This severity shows a higher risk factor and most vulnerable in
 filling a claim.
 
+``` r obese bmi
+insurance_data %>% 
+  ggplot() +
+  geom_point(mapping = aes(x = bmi, y = claim, color = bmi >= 30)) +
+  xlim(0,60) +
+  labs(title = "Health Factor Risk and Severity on Insurance Claims",
+       subtitle = "Obese: Body Mass Index of 30 or More", caption = "Data Source: kaggle.com/datasets/thedevastator", color = "Obese") + 
+  scale_y_continuous(labels=scales::dollar_format()) + xlab("Body Mass Index") + 
+  ylab("Claims") + theme_minimal()
+```
+
 ![bmi obese-1](https://user-images.githubusercontent.com/119358123/214977869-b10b62fe-3ec1-4e56-8d04-a5635badf535.png)
 <!-- -->
 
@@ -100,6 +155,18 @@ A point brought up in the earlier analysis was to evaluate the lack of
 insurance claims in comparison to females over the age of 50. The
 analysis provides insights into females that were either obese or
 overweight were more vulnerable and likely to file an insurance claim.
+
+``` r bmi gender
+bmi_genderdf <- data.frame(BMI = c("Under", "Under", "Normal", "Normal", "Over", "Over", "Obese", "Obese"),
+                 Gender = c("Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female"),
+                 Total = c(0, 3, 2, 39, 7, 67, 6, 100)
+)
+
+ggplot(data = bmi_genderdf) + 
+    geom_col(mapping = aes(x = BMI, y = Total, fill = Gender), position = 'dodge') +
+  labs(title = "Relationship between Gender & BMI",
+       subtitle = "Over the Age of 50 or More", caption = "Data Source: kaggle.com/datasets/thedevastator", color = "BMI Greater or Equals 30") + xlab("Body Mass Index") + theme_minimal()
+```
 
 ![bmi gender relationship-1](https://user-images.githubusercontent.com/119358123/214977922-ac5a9b38-02d2-49a5-9559-2cb9f95aa004.png)
 <!-- -->
@@ -116,6 +183,17 @@ Individuals at risk for high blood pressure had a higher minimum
 monetary claim value around \$26,000, although fewer overall claims in
 total but a very costly starting point in comparison to the rest.
 
+``` r high bloodpressure
+insurance_data %>% 
+  ggplot() +
+  geom_point(mapping = aes(x = bloodpressure, y = claim, color = bloodpressure >= 130, shape = smoker)) +
+  xlim(0,150) +
+  labs(title = "Health Factor Risk and Severity on Insurance Claims",
+       subtitle = "High Blood Pressure of 130 or More", caption = "Data Source: kaggle.com/datasets/thedevastator", color = "High Blood Pressure", shape="Smoker") + 
+  scale_y_continuous(labels=scales::dollar_format())+ xlab("Blood Pressure") + 
+  ylab("Claims") + theme_minimal()
+```
+
 ![high bloodpressure-1](https://user-images.githubusercontent.com/119358123/214977964-96ab3b36-2d44-47e8-a2a6-b7941d4f5645.png)
 <!-- -->
 
@@ -129,6 +207,17 @@ plot is the relationship between an individual being a smoker and the
 claim amount. There appears to be a strong positive correlation between
 smokers and high claims monetary amount.
 
+``` r prehypertension
+insurance_data %>% 
+  ggplot() +
+  geom_point(mapping = aes(x = bloodpressure, y = claim, color = bloodpressure >= 120 & bloodpressure <=129, shape = smoker)) +
+  xlim(0,150) +
+  labs(title = "Health Factor Risk and Severity on Insurance Claims",
+       subtitle = "At Risk (prehypertension) between 120 & 129", caption = "Data Source: kaggle.com/datasets/thedevastator", color = "Pre-Hypertension", shape="Smoker") + 
+  scale_y_continuous(labels=scales::dollar_format())+ xlab("Blood Pressure") + 
+  ylab("Claims") + theme_minimal()
+```
+
 ![prehypertension bloodpressure-1](https://user-images.githubusercontent.com/119358123/214977991-6d56b383-939f-4430-ab36-e10eb5ec2773.png)
 <!-- -->
 
@@ -137,6 +226,18 @@ smokers and high claims monetary amount.
 In an effort to evaluate the relationship between gender and insurance
 claims, males were slightly more likely to be responsible for the higher
 monetary value.
+
+``` r gender bloodpressure
+insurance_data %>% 
+  drop_na(age) %>% 
+  ggplot() +
+  geom_point(mapping = aes(x = bloodpressure, y = claim, color = gender)) +
+  xlim(0,150) +
+  labs(title = "Relationship between Gender and Insurance Claims",
+       subtitle = "Health Factor Risk: Blood Pressure", caption = "Data Source: kaggle.com/datasets/thedevastator", color = "Blood Pressure Over 130", shape="Smoker") + 
+  scale_y_continuous(labels=scales::dollar_format())+ xlab("Blood Pressure") + 
+  ylab("Claims") + theme_minimal()
+```
 
 ![gender and bloodpressure-1](https://user-images.githubusercontent.com/119358123/214978051-3798968b-56bc-41f1-b4db-0fa0eaf6a675.png)
 <!-- -->
@@ -150,6 +251,17 @@ pressure.
 There happens to be no strong correlation between diabetics and claim
 amounts. Both diabetics and non-diabetics show comparable results in
 this analysis.
+
+``` r diabetic
+insurance_data %>% 
+  ggplot() +
+  geom_point(mapping = aes(x = bloodpressure, y = claim, color = diabetic, shape = gender)) +
+  xlim(0,150) +
+  labs(title = "Health Factor Risk and Severity on Insurance Claims",
+       subtitle = "Diabetic", caption = "Data Source: kaggle.com/datasets/thedevastator", color = "Diabetic", shape = "Gender") + 
+  scale_y_continuous(labels=scales::dollar_format())+ xlab("Blood Pressure") + 
+  ylab("Claims") + theme_minimal()
+```
 
 ![diabetic-1](https://user-images.githubusercontent.com/119358123/214978082-a424289d-090f-4f7a-a752-fc83d3fac900.png)
 <!-- -->
